@@ -15,13 +15,13 @@ namespace Kk\Kocksmachine\Controller;
 /**
  * MachineController
  */
-class MachineeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class MachineController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
      * machineRepository
      *
      * @var \Kk\Kocksmachine\Domain\Repository\MachineRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $machineRepository = null;
 
@@ -39,10 +39,10 @@ class MachineeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     /**
      * action show
      *
-     * @param \Kk\Kocksmachine\Domain\Model\Timeline $timeline
+     * @param \Kk\Kocksmachine\Domain\Model\Machine $machine
      * @return void
      */
-    public function showAction(\Kk\Kocksmachine\Domain\Model\Timeline $timeline)
+    public function showAction(\Kk\Kocksmachine\Domain\Model\Machine $machine)
     {
         $this->view->assign('machine', $machine);
     }

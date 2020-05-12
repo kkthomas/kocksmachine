@@ -13,8 +13,8 @@ namespace Kk\Kocksmachine\Domain\Repository;
  ***/
 
 /**
- * The repository for Timelines
+ * The repository for Machine
  */
-class MachineeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class MachineRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     }

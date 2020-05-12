@@ -23,49 +23,70 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
 
-<div class="frst-container" data-animation-name="slideInUp">
-			<!-- frst-left-align/frst-right-align/frst-alternate/frst-date-opposite/frst-responsive-right-->
-			<div class="frst-timeline frst-timeline-style-8 frst-date-opposite frst-alternate">
-
-
-<f:for each="{timelines->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="timeline" iteration="iterator">
 
 
 
+<section class="cd-horizontal-timeline">
+	<div class="timeline">
+		<div class="events-wrapper">
+			<div class="events">
+				<ol>
+				<f:for each="{machines}" as="machine" iteration="iterator">
+				
+					<li>
+					<f:if condition="{iterator.index}<10>">
+					
+					<a href="#0" data-date="16/01/190{iterator.index}" class="{f:if(condition:iterator.isFirst, then: 'selected')}">{machine.title}</a></li>
+					
+					</f:if>
+					<f:if condition="{iterator.index}>9">
+					<a href="#0" data-date="16/01/19{iterator.index}" class="{f:if(condition:iterator.isFirst, then: 'selected')}">{machine.title}</a></li>
 
+					</f:if>
+				</f:for>
+				</ol>
 
-<div class="frst-timeline-block frst-{f:if(condition:iterator.isOdd, then: 'odd')}{f:if(condition:iterator.isEven, then: 'even')}-item" data-animation="slideInUp">
-					<div class="frst-timeline-img">
-						<span>
-						</span>
-					</div>
-					<!-- frst-timeline-img -->
-					<div class="frst-timeline-content">
-						<div class="frst-timeline-content-inner">
-						<f:if condition="{timeline.image.originalResource.name}!=' '">
-						
-							<div class="media-section">
-							
-								<img src="fileadmin{timeline.image.originalResource.originalFile.identifier}" alt="Frst Responsive Timeline ">
-							</div>
-							</f:if>
-							<h2>{timeline.title} </h2>
-							<span class="frst-date" style="border: 0px solid grey; padding: 10px;text-align: center; color:white; background:#009899">{timeline.year}</span>
-							<p>{timeline.description}
-							</p>
-						</div>
-						<!-- frst-timeline-content-inner -->
-					</div>
-					<!-- frst-timeline-content -->
-				</div>
+				<span class="filling-line" aria-hidden="true"></span>
+				
+				
+			</div> <!-- .events -->
+		</div> <!-- .events-wrapper -->
+			<ul class="cd-timeline-navigation">
+			<li><a href="#0" class="prev inactive">Prev</a></li>
+			<li><a href="#0" class="next">Next</a></li>
+		</ul> <!-- .cd-timeline-navigation -->
+		
+	</div> <!-- .timeline -->
 
+	<div class="events-content">
+		<ol>
+		<f:for each="{machines}" as="machine" iteration="iterator">
+		
+		<f:if condition="{iterator.index}<10">
+					
+			<li class="{f:if(condition:iterator.isFirst, then: 'selected')}" data-date="16/01/190{iterator.index}">
+					
+					</f:if>
+					<f:if condition="{iterator.index}>9">
+			<li class="{f:if(condition:iterator.isFirst, then: 'selected')}" data-date="16/01/19{iterator.index}">
 
-</f:for>
-
+					</f:if>
+					<h3 class="lead">{machine.title}</h3>
+					<br/>
+		<div>
+			<f:if condition="{machine.images}">
+		<f:image src="{machine.images.uid}" width="800" treatIdAsReference="1" />
+		</f:if>
 </div>
-		<!-- .frst-container -->
-
-	</div>
+				
+			
+				<p>	{machine.description}</p>
+			</li>
+	</f:for>
+			
+		</ol>
+	</div> <!-- .events-content -->
+</section>
 
 </f:section>
 

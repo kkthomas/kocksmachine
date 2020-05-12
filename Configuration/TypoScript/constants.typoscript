@@ -1,0 +1,15 @@
+
+plugin.tx_kocksmachine_kocksmachine {
+  view {
+    # cat=plugin.tx_kocksmachine/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:kocksmachine/Resources/Private/Templates/
+    # cat=plugin.tx_kocksmachine/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:kocksmachine/Resources/Private/Partials/
+    # cat=plugin.tx_kocksmachine/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:kocksmachine/Resources/Private/Layouts/
+  }
+  persistence {
+    # cat=plugin.tx_kocksmachine//a; type=string; label=Default storage PID
+    storagePid =
+  }
+}

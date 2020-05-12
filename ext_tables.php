@@ -13,7 +13,7 @@ call_user_func(
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile("kocksmachine", 'Configuration/TypoScript', 'KK Kocksmachine');
 
-         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_kocksmachine_domain_model_timeline');
+         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_kocksmachine_domain_model_machine');
 
     },
     $_EXTKEY

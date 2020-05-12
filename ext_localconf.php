@@ -5,7 +5,7 @@ call_user_func(
     function () {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
              'Kk.Kocksmachine',
-            'Pi1',
+            'kocksmachine',
             [
                 'Machine' => 'list, show'
             ],
@@ -23,8 +23,8 @@ call_user_func(
 					kocksmachine {
 
 						icon = '. \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath("kocksmachine") . 'Resources/Public/Icons/user_plugin_kocksmachine.svg
-						title = LLL:EXT:kocksmachine/Resources/Private/Language/locallang_db.xlf:tx_kk_kocksmachine_domain_model_kocksmachine
-						description = LLL:EXT:kocksmachine/Resources/Private/Language/locallang_db.xlf:tx_kk_kocksmachine_domain_model_kocksmachine.description
+						title = Machine
+						description = Kocks Machine
 						tt_content_defValues {
 							CType = list
 							list_type = kocksmachine_kocksmachine

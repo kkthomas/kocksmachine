@@ -1,0 +1,60 @@
+
+plugin.tx_kocksmachine_kocksmachine {
+  view {
+    templateRootPaths.0 = EXT:kocksmachine/Resources/Private/Templates/
+    templateRootPaths.1 = plugin.tx_kocksmachine_kocksmachine.view.templateRootPath
+    partialRootPaths.0 = EXT:kocksmachine/Resources/Private/Partials/
+    partialRootPaths.1 = plugin.tx_kocksmachine_kocksmachine.view.partialRootPath
+    layoutRootPaths.0 = EXT:kocksmachine/Resources/Private/Layouts/
+    layoutRootPaths.1 = plugin.tx_kocksmachine_kocksmachine.view.layoutRootPath
+  }
+  persistence {
+    
+    #recursive = 1
+  }
+  features {
+    #skipDefaultArguments = 1
+  }
+  mvc {
+    #callDefaultActionIfActionCantBeResolved = 1
+  }
+}
+
+plugin.tx_kocksmachine._CSS_DEFAULT_STYLE (
+    textarea.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    input.f3-form-error {
+        background-color:#FF9F9F;
+        border: 1px #FF0000 solid;
+    }
+
+    .tx-kk-timeline table {
+        border-collapse:separate;
+        border-spacing:10px;
+    }
+
+    .tx-kk-timeline table th {
+        font-weight:bold;
+    }
+
+    .tx-kk-timeline table td {
+        vertical-align:top;
+    }
+
+    .typo3-messages .message-error {
+        color:red;
+    }
+
+    .typo3-messages .message-ok {
+        color:green;
+    }
+)
+
+
+
+
+page.includeJSFooterlibs.kocksmachine = EXT:kocksmachine/Resources/Public/Js/kocksmachine.js
+page.includeCSSLibs.kocksmachine2 = EXT:kocksmachine/Resources/Public/Css/kocksmachine.css

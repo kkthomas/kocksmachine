@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline',
+        'title'	=> 'Title',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -16,14 +16,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-		'searchFields' => 'year,image,video,title,date,description',
-        'iconfile' => 'EXT:kktimeline/Resources/Public/Icons/tx_kktimeline_domain_model_timeline.gif'
+		'searchFields' => 'images,title,description',
+        'iconfile' => 'EXT:kocksmachine/Resources/Public/Icons/tx_kocksmachine_domain_model_machine.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, year, image, video, title, date, description',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, images, title, description',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, year, image, video, title, date, description, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, images, title, description, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
 		'sys_language_uid' => [
@@ -53,8 +53,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_kktimeline_domain_model_timeline',
-                'foreign_table_where' => 'AND tx_kktimeline_domain_model_timeline.pid=###CURRENT_PID### AND tx_kktimeline_domain_model_timeline.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_kocksmachine_domain_model_machine',
+                'foreign_table_where' => 'AND tx_kocksmachine_domain_model_machine.pid=###CURRENT_PID### AND tx_kocksmachine_domain_model_machine.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -107,20 +107,12 @@ return [
                 ]
             ],
         ],
-        'year' => [
+       
+	    'images' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.year',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 4,
-			    'eval' => 'int,required'
-			]
-	    ],
-	    'image' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.image',
+	        'label' => 'Images',
 	        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-			    'image',
+			    'images',
 			    [
 			        'appearance' => [
 			            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
@@ -162,38 +154,20 @@ return [
 			    $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 	    ],
-	    'video' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.video',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	    ],
+	   
 	    'title' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.title',
+	        'label' => 'Title',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
 			    'eval' => 'trim,required'
 			],
 	    ],
-	    'date' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.date',
-	        'config' => [
-			    'dbType' => 'date',
-			    'type' => 'input',
-			    'size' => 7,
-			    'eval' => 'date',
-			    'default' => '0000-00-00'
-			],
-	    ],
+	   
 	    'description' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:kktimeline/Resources/Private/Language/locallang_db.xlf:tx_kktimeline_domain_model_timeline.description',
+	        'label' => 'Description',
 	        'config' => array(
 				'type' => 'text',
 				'cols' => 40,

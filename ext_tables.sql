@@ -1,4 +1,4 @@
-CREATE TABLE tx_kocksmachine_domain_model_timeline (
+CREATE TABLE tx_kocksmachine_domain_model_machine (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) NULL,

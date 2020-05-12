@@ -1,13 +1,10 @@
 jQuery(document).ready(function($){
-    "use strict";
-    var i;
-	var timelines = $('.frst-timeline-style-17'),
-		eventsMinDistance = 60;
+	var timelines = $('.cd-horizontal-timeline'),
+		eventsMinDistance = 80;
 
 	(timelines.length > 0) && initTimeline(timelines);
 
 	function initTimeline(timelines) {
-        "use strict";
 		timelines.each(function(){
 			var timeline = $(this),
 				timelineComponents = {};
@@ -18,7 +15,7 @@ jQuery(document).ready(function($){
 			timelineComponents['timelineEvents'] = timelineComponents['eventsWrapper'].find('a');
 			timelineComponents['timelineDates'] = parseDate(timelineComponents['timelineEvents']);
 			timelineComponents['eventsMinLapse'] = minLapse(timelineComponents['timelineDates']);
-			timelineComponents['timelineNavigation'] = timeline.find('.frst-timeline-navigation');
+			timelineComponents['timelineNavigation'] = timeline.find('.cd-timeline-navigation');
 			timelineComponents['eventsContent'] = timeline.children('.events-content');
 
 			//assign a left postion to the single events along the timeline
@@ -125,7 +122,7 @@ jQuery(document).ready(function($){
 		var eventStyle = window.getComputedStyle(selectedEvent.get(0), null),
 			eventLeft = eventStyle.getPropertyValue("left"),
 			eventWidth = eventStyle.getPropertyValue("width");
-		eventLeft = Number(eventLeft.replace('px', '')) + Number(eventWidth.replace('px', ''))/2;
+		eventLeft = Number(eventLeft.replace('px', '')) + Number(eventWidth.replace('px', ''))+5;
 		var scaleValue = eventLeft/totWidth;
 		setTransformValue(filling.get(0), 'scaleX', scaleValue);
 	}
@@ -133,7 +130,7 @@ jQuery(document).ready(function($){
 	function setDatePosition(timelineComponents, min) {
 		for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
 		    var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
-		    	distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;
+		    	distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']);
 		    timelineComponents['timelineEvents'].eq(i).css('left', distanceNorm*min+'px');
 		}
 	}
@@ -275,6 +272,6 @@ jQuery(document).ready(function($){
 
 	function checkMQ() {
 		//check if mobile or desktop device
-		return window.getComputedStyle(document.querySelector('.frst-timeline-style-17'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+		return window.getComputedStyle(document.querySelector('.cd-horizontal-timeline'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
 	}
 });
