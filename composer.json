@@ -1,0 +1,26 @@
+{
+    "name": "kk/kocksmachine",
+    "type": "typo3-cms-extension",
+    "description": "KK Kocks Machine extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "typo3/cms-core": "^9.5 || ^10.4"
+    },
+    "replace": {
+        "kk/kocksmachine": "self.version",
+        "typo3-ter/kocksmachine": "self.version"
+    },
+     "minimum-stability": "stable",
+     "prefer-stable": true,
+     "extra": {
+
+        "typo3/cms": {
+            "extension-key": "kocksmachine"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Kocksmachine\\Kocksmachine\\": "Classes/"
+        }
+    }
+}
